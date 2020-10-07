@@ -1,3 +1,8 @@
-<p>
-   Nuevo Usuario
-</p>
+<form [formGroup]="formulario" (ngSubmit)="onSubmit()">
+   <div class="form-group">
+     <input type="text" name="nombre" class="form-control" id="nombre" required>
+   </div>
+  
+   <button  class="btn btn-primary">Submit</button>
+ </form> 
+ {{ nombre.value }}
