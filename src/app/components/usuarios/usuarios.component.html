@@ -1,8 +1,36 @@
 <form [formGroup]="formulario" (ngSubmit)="onSubmit()">
-   <div class="form-group">
-     <input type="text" name="nombre" class="form-control" id="nombre" required>
-   </div>
-  
-   <button  class="btn btn-primary">Submit</button>
- </form> 
- {{ nombre.value }}
+  <div class="form-group">
+    <label for="nombre" class="form-control-label">Nombre</label>
+    <input class="focus-input form-control" formControlName="nombre" type="text" name="nombre" id="nombre"
+      placeholder="Nombre" required>
+    <div class="alert alert-warning" role="alert"
+      *ngIf="nombre.invalid && ( nombre.dirty || nombre.touched || nombre.errors.minlength)">
+      <div class="alert-warning" *ngIf="nombre.errors.required">
+        Name requaired
+      </div>
+      <div class="alert-warning" *ngIf="nombre.errors.minlength">
+        Name too short
+      </div>
+    </div>
+  </div>
+
+
+  <div class="form-group has-success">
+    <label for="email" class="form-control-label">Email</label>
+    <input class="focus-input form-control " formControlName="email" type="email" name="email" id="email"
+      placeholder="Email" required>
+    <div class="alert alert-warning" role="alert"
+      *ngIf="email.invalid && ( email.dirty || email.touched || email.errors.pattern)">
+      <div class="alert-warning" *ngIf="email.errors.required ">
+        Email requaired
+      </div>
+      <div class="alert-warning" *ngIf="email.errors.pattern">
+        Email format not valid
+      </div>
+    </div>
+  </div>
+  <div *ngIf="formulario.valid else   notShow">
+    <button [disabled]="!formulario.valid" class="btn btn-primary">Submit</button>
+  </div>
+
+</form>

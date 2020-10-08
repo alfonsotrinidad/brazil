@@ -1,0 +1,16 @@
+.form-control-label{
+  font-family: Poppins-SemiBold;
+  font-size: 14px;
+  color: #999999;
+  line-height:0.1 ;
+  padding-left: 0px;
+}
+.alert-warning{
+    margin-top: 0px;
+    padding: 0px;
+    font-size:14px;
+}
+
+.alert{
+    background-color: cadetblue;
+}

@@ -4,6 +4,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { UsuariosComponent } from './components/usuarios/usuarios.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -14,6 +15,7 @@ import { UsuariosComponent } from './components/usuarios/usuarios.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
 ReactiveFormsModule
   ],
   providers: [],
