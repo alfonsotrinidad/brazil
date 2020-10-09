@@ -20,7 +20,8 @@ export class UsuariosComponent implements OnInit {
     return new FormGroup({
       id       : new FormControl("",[Validators.required,Validators.minLength(5)]),  
       nombre   : new FormControl("",[Validators.required,Validators.minLength(5)]),
-      email    : new FormControl("",[Validators.required,Validators.minLength(5),	Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")]),
+      email    : new FormControl("",[Validators.required,Validators.minLength(5),
+         	Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")]),
       cpf      : new FormControl("",[Validators.required,Validators.minLength(5)]),
       phone    : new FormControl("",[Validators.required,Validators.minLength(5)]),
       password : new FormControl("",[Validators.required,Validators.minLength(5)]),

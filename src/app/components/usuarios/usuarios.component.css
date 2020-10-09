@@ -9,8 +9,14 @@
     margin-top: 0px;
     padding: 0px;
     font-size:14px;
+    width: 30%;
+
 }
 
 .alert{
     background-color: cadetblue;
+}
+.error{
+  background-color: #E3E358;
+  color: #588FE3;
 }
