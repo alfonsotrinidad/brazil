@@ -5,12 +5,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { UsuariosComponent } from './components/usuarios/usuarios.component';
 import { FormsModule } from '@angular/forms';
+import { ProductsComponent } from './components/products/products.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    UsuariosComponent
+    UsuariosComponent,
+    ProductsComponent
   ],
   imports: [
     BrowserModule,

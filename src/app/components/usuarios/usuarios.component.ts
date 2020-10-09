@@ -44,23 +44,25 @@ export class UsuariosComponent implements OnInit {
   ngOnInit() {
   }
 
-onSubmit(){
-  console.log(this.formulario.get('nombre').value +   "   this.formulario.value" );
+save(){
+  if(this.formulario.valid)
+  console.log(this.formulario.get('nombre').value +   "   "+   this.formulario );
+  else alert("faltan");
 }
 
 limpiar(){
   this.formulario.reset();
 }
 
-get id(){return this.formulario.get('id') }
-get nombre(){return this.formulario.get('nombre') }
-get email(){return this.formulario.get('email') }
-get cpf(){return this.formulario.get('cpf') }
-get phone(){return this.formulario.get('phone') }
-get password(){return this.formulario.get('password') }
-get photourl(){return this.formulario.get('photourl') }
-get location(){return this.formulario.get('location') }
-get points(){return this.formulario.get('points') }
-get settings(){return this.formulario.get('settings') }
+    get id(){return this.formulario.get('id') }
+    get nombre(){return this.formulario.get('nombre') }
+    get email(){return this.formulario.get('email') }
+    get cpf(){return this.formulario.get('cpf') }
+    get phone(){return this.formulario.get('phone') }
+    get password(){return this.formulario.get('password') }
+    get photourl(){return this.formulario.get('photourl') }
+    get location(){return this.formulario.get('location') }
+    get points(){return this.formulario.get('points') }
+    get settings(){return this.formulario.get('settings') }
 
-}
+    }

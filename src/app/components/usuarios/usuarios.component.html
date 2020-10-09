@@ -1,4 +1,8 @@
-<form [formGroup] = "formulario" >
+<div class="card-header">
+    <h3 class="card-title">Usuarios</h3>
+    
+</div>
+<form [formGroup] = "formulario" (ngSubmit)="save()" >
 <div class="container">
 
   <div class="row">
@@ -86,12 +90,6 @@
           </div>
         </div>
       </div>
-
-
-
-
-
-
 
 
      </div>
@@ -182,14 +180,8 @@
     </div>
   </div>
 
-
-
-
-
-
-
   <div >
-    <button [disabled] = "!formulario.valid"
+    <button [disabled] = "formulario.valid"
      class="btn btn-primary btn-block">Enviar</button>
   </div>
  </div>
