@@ -1,26 +1,29 @@
-<div class="card-header">
-    <h3 class="card-title">Usuarios</h3>
+<div class="container card-header">
+    <h3 class="card-title float-left"></h3>
       <!--pre>{{selectedUser | json}}</pre-->
+    
+        <button id="btn-new" class="btn btn-primary " (click) = "nuevo()">
+          <i class="fas fa-plus-square"></i>
+        </button>
+    
 </div>
-<form [formGroup] = "formulario" (ngSubmit)="save()" >
-<div class="container">
+<form id="form" [formGroup] = "formulario" >
+<div class="container" style="padding: 0px;">
 
 
   <div class="row">
     <!-- primera columna-->
-    <div class="col-2">
+    <div class="col-3">
 
       <div class="form-group">   <!-- id-->
         <label for="id" class="form-control-label">Id</label>
         <input class="focus-input form-control" [(ngModel)] = "selectedUser.id" formControlName="id" type="text" name="id" id="id" 
           placeholder="id" required>
-        <div class="alert alert-warning" role="alert"  *ngIf="id.invalid && ( id.dirty || id.touched || id.errors.minlength)">
+        <div class="alert alert-warning" role="alert"  *ngIf="id.invalid && ( id.dirty || id.touched)">
           <div class="error" *ngIf="id.errors.required">
             Id requaired
           </div>
-          <div class="error" *ngIf="id.errors.minlength">
-            Id invalid
-          </div>
+         
         </div>
       </div>
 
@@ -98,7 +101,7 @@
 
 <!-- Segunda columna-->
 
-<div class="col-2">
+<div class="col-3">
 
 
   <div class="form-group"> <!-- password-->
@@ -180,58 +183,57 @@
   </div>
 
   <div >
-    <button [disabled] = "!formulario.valid"  class="btn btn-primary btn-block ">
-     <i class="fas fa-save"></i>
+    <button [disabled] = "!formulario.valid"  class="btn btn-primary btn-block " (click) = "save()">
+     Save   <i class="fas fa-save"></i>
     </button>
+    <button class="btn btn-warning mt-2 " (click) = "cancel()">
+      <i>Cancel</i>
+     </button>
     
   </div>
  </div>
 
- <div class="col-8 ">
-  <div class="tabla table-responsive-lg mx-auto">
-    <table class="table">
-      <thead>
-        <tr>
-          <th scope="col">id</th>
-          <th scope="col">Name</th>
-          <th scope="col">Email</th>
-          <th scope="col">Location</th>
-          <th scope="col">Settings</th>
-          <th scope="col">Actions</th>
-        </tr>
-        </thead>
-        <tbody >
-          
-          <tr *ngFor="let u of users" (click)="openEdit(u)" [class.active] = "u==selectedUser">
-            <th scope="row"><span class="badge badge-primary">{{u.id}}</span></th>
-            <td>{{u.name}}</td>
-            <td>{{u.email}}</td>
-            <td>{{u.location}}</td>
-            <td>{{u.settings}}</td>
-
-            <td>
-              <button class="btn btn-warning" (click)="editar($event)" id = {{u.id}}>
-                <i class="fas fa-edit"></i>
-              </button> 
-              <button class="btn btn-danger" (click)="eliminar($event)" id = "{{u.id}}">
-                <i class="fas fa-trash-alt"></i>
-              </button> 
-           
-          </tr>
+ <div class="col-6 ">
+  
+      <div class="tabla">
+        <table class="table">
+          <thead >
+            <tr>
+              <th scope="col">id</th>
+              <th scope="col">Name</th>
+              <th scope="col">Email</th>
+              <th scope="col">Location</th>
+              <th scope="col">Settings</th>
+              <th scope="col">Actions</th>
+            </tr>
+            </thead>
+            <tbody >
+              
+              <tr *ngFor="let u of users" (click)="openEdit(u)" [class.active] = "u==selectedUser">
+                <th scope="row"><span class="badge badge-primary">{{u.id}}</span></th>
+                <td>{{u.name}}</td>
+                <td>{{u.email}}</td>
+                <td>{{u.location}}</td>
+                <td>{{u.settings}}</td>
+                <td>
+                  <button class="btn btn-warning" (click)="editar($event)" id = {{u.id}}>
+                    <i class="fas fa-edit"></i>
+                  </button> 
+                  <button class="btn btn-danger" (click)="eliminar($event)" id = "{{u.id}}">
+                    <i class="fas fa-trash-alt"></i>
+                  </button> 
+              </tr>
+              </tbody>
+            </table>
         
-          </tbody>
-        </table>
-    
-  </div>
+      </div>
    </div>
 
 
 
 
 
-   </div>
-</div>
-</form>
+ 
 <div class="well well-large">
 
 </div>

@@ -60,7 +60,7 @@ export class UsuariosComponent implements OnInit {
    ]
   createFormGroup(){
     return new FormGroup({
-      id       : new FormControl("",[Validators.required,Validators.minLength(1)]),  
+      id       : new FormControl("",[Validators.required]),  
       name   : new FormControl("",[Validators.required,Validators.minLength(5)]),
       email    : new FormControl("",[Validators.required,Validators.minLength(5),
          	Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")]),
@@ -84,15 +84,18 @@ export class UsuariosComponent implements OnInit {
   
 
   ngOnInit() {
-  //  this.selectedUser = this.users[0];
+  this.formulario.disable()
+   
   }
 
 save(){
-  if(this.formulario.valid && this.selectedUser.id===0){
+  if(this.formulario.valid ){
     this.selectedUser.id = this.users.length + 1 
     this.users.push(this.selectedUser);
-  this.limpiar()
-    }
+    this.formulario.disable()
+    document.querySelector("#btn-new").setAttribute("enabled","true") ;
+    this.formulario.reset();
+     }
   }
 
 limpiar(){
@@ -112,13 +115,22 @@ eliminar(e){
          }
 }
 
-
+nuevo(){
+  this.selectedUser = new User();
+  this.formulario.enable();
+  const e  = document.querySelector("#id") as HTMLInputElement;
+  document.querySelector("#btn-new").setAttribute("disabled", "true") ;
+  e.focus();
+}
 openEdit(u : User){
  
   this.selectedUser = u;
   }
 
-  
+  cancel(){
+    this.formulario.disable();
+    document.querySelector("#btn-new").removeAttribute("disabled");
+  }
 
 
     get id(){return this.formulario.get('id') }
