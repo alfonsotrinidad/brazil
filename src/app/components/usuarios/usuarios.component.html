@@ -12,8 +12,8 @@
 
       <div class="form-group">   <!-- id-->
         <label for="id" class="form-control-label">Id</label>
-        <input class="focus-input form-control" [(ngModel)] = "selectedUser.id" formControlName="id" type="text" name="id" id="id" ngmodel=""
-          placeholder="Nombre" required>
+        <input class="focus-input form-control" [(ngModel)] = "selectedUser.id" formControlName="id" type="text" name="id" id="id" 
+          placeholder="id" required>
         <div class="alert alert-warning" role="alert"  *ngIf="id.invalid && ( id.dirty || id.touched || id.errors.minlength)">
           <div class="error" *ngIf="id.errors.required">
             Id requaired
@@ -183,8 +183,7 @@
   </div>
 
   <div >
-    <button [disabled] = "!formulario.valid" (click) = "save()"
-     class="btn btn-primary btn-block ">
+    <button [disabled] = "!formulario.valid"  class="btn btn-primary btn-block ">
      <i class="fas fa-save"></i>
     </button>
      <button  class="btn btn-danger  mt-1 ml-auto">
@@ -219,7 +218,7 @@
               <button class="btn btn-warning" (click)="editar($event)" id = {{u.id}}>
                 <i class="fas fa-edit"></i>
               </button> 
-              <button class="btn btn-danger" (click)="eliminar($event)" id = {{u.id}}>
+              <button class="btn btn-danger" (click)="eliminar($event)" id = "{{u.id}}">
                 <i class="fas fa-trash-alt"></i>
               </button> 
            

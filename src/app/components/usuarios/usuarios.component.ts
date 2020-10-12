@@ -17,8 +17,7 @@ export class UsuariosComponent implements OnInit {
   selectedUser: User = new User()
 
    
-  users: User[] = [
-    {
+  users: User[] = [    {
       "uid": "hUvH6neQnWPkwWL9zM4bcAwYspn2",
       "id": 1,
       "name": "Vinícius Tolentino",
@@ -57,9 +56,8 @@ export class UsuariosComponent implements OnInit {
       "location": "Belo Horizonte",
       "points": 40,
       "settingsUser": { "language": "pt-br", "type": "client" }
-    },
-   
-  ]
+    }
+   ]
   createFormGroup(){
     return new FormGroup({
       id       : new FormControl("",[Validators.required,Validators.minLength(1)]),  
@@ -86,13 +84,15 @@ export class UsuariosComponent implements OnInit {
   
 
   ngOnInit() {
-    this.selectedUser = this.users[0];
+  //  this.selectedUser = this.users[0];
   }
 
 save(){
-  if(this.formulario.valid)
-      (this.formulario.get('name').value +   "   "+   this.formulario );
+  if(this.formulario.valid){
 
+  this.users.splice(this.users.length,  1, this.selectedUser);
+  this.selectedUser = new User()
+    }
   else alert("faltan");
 }
 
@@ -108,7 +108,7 @@ editar(e){
 
 eliminar(e){
      if (confirm("Want to delete?  "  +e.target.id)){
-          const nuevo = this.users.filter( item => item.id != e.target.id)
+          const nuevo = this.users.filter( item => item.id != e.target.id )
           this.users = nuevo   
          }
 }
