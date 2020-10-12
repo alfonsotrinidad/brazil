@@ -1,6 +1,6 @@
 export class User {
     uid:string
-    id:number
+    id:number = 0
     name:string
     email:string
     cpf:string

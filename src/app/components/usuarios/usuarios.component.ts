@@ -88,13 +88,12 @@ export class UsuariosComponent implements OnInit {
   }
 
 save(){
-  if(this.formulario.valid){
-
-  this.users.splice(this.users.length,  1, this.selectedUser);
-  this.selectedUser = new User()
+  if(this.formulario.valid && this.selectedUser.id===0){
+    this.selectedUser.id = this.users.length + 1 
+    this.users.push(this.selectedUser);
+  this.limpiar()
     }
-  else alert("faltan");
-}
+  }
 
 limpiar(){
   this.formulario.reset();
@@ -112,6 +111,15 @@ eliminar(e){
           this.users = nuevo   
          }
 }
+
+
+openEdit(u : User){
+ 
+  this.selectedUser = u;
+  }
+
+  
+
 
     get id(){return this.formulario.get('id') }
     get name(){return this.formulario.get('name') }

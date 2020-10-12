@@ -27,9 +27,31 @@
   width: 100%;
   border-left: solid 1px springgreen;
 }
+.tabla tr{ 
+  cursor: pointer;
+}
+
+.tabla thead tr { 
+  cursor: default
+}
+
+
+.tabla tbody tr:hover{ 
+  background-color: #97abdd;
+  color: beige;
+  font-weight: bold;
+}
 pre{
   overflow: scroll;
   height: 200px;
   max-height: 3000px;    
   width: 40%;
+}
+
+.active{
+   background-color: #336EFF;
+  cursor: pointer;
+  color: beige;
+  font-weight: bold; 
+  font-size: 16px;
 }
