@@ -1,6 +1,6 @@
 <div class="card-header">
     <h3 class="card-title">Usuarios</h3>
-    
+      <!--pre>{{selectedUser | json}}</pre-->
 </div>
 <form [formGroup] = "formulario" (ngSubmit)="save()" >
 <div class="container">
@@ -8,11 +8,11 @@
 
   <div class="row">
     <!-- primera columna-->
-    <div class="col-6">
+    <div class="col-2">
 
       <div class="form-group">   <!-- id-->
         <label for="id" class="form-control-label">Id</label>
-        <input class="focus-input form-control" formControlName="id" type="text" name="id" id="id" ngmodel=""
+        <input class="focus-input form-control" [(ngModel)] = "selectedUser.id" formControlName="id" type="text" name="id" id="id" ngmodel=""
           placeholder="Nombre" required>
         <div class="alert alert-warning" role="alert"  *ngIf="id.invalid && ( id.dirty || id.touched || id.errors.minlength)">
           <div class="error" *ngIf="id.errors.required">
@@ -27,15 +27,15 @@
 
 
       <div class="form-group">   <!-- nombre-->
-        <label for="nombre" class="form-control-label">Nombre</label>
-        <input class="focus-input form-control" formControlName="nombre" type="text" name="nombre" id="nombre"
+        <label for="name" class="form-control-label">Nombre</label>
+        <input class="focus-input form-control" [(ngModel)] = "selectedUser.name" formControlName="name" type="text" name="name" id="name"
           placeholder="Nombre" required>
         <div class="alert alert-warning" role="alert"
-          *ngIf="nombre.invalid && ( nombre.dirty || nombre.touched || nombre.errors.minlength)">
-          <div class="error" *ngIf="nombre.errors.required">
+          *ngIf="name.invalid && ( name.dirty || name.touched || name.errors.minlength)">
+          <div class="error" *ngIf="name.errors.required">
             Name requaired
           </div>
-          <div class="error" *ngIf="nombre.errors.minlength">
+          <div class="error" *ngIf="name.errors.minlength">
             Name too short
           </div>
         </div>
@@ -43,7 +43,7 @@
 
       <div class="form-group">   <!-- email-->
         <label for="email" class="form-control-label">Email</label>
-        <input class="focus-input form-control" formControlName="email" type="text" name="email" id="email"
+        <input class="focus-input form-control" [(ngModel)] = "selectedUser.email" formControlName="email" type="text" name="email" id="email"
           placeholder="Nombre" required>
         <div class="alert alert-warning" role="alert"
           *ngIf="email.invalid && ( email.dirty || email.touched || email.errors.minlength)">
@@ -64,7 +64,7 @@
 
       <div class="form-group">  <!-- cpf-->
         <label for="cpf" class="form-control-label">Cpf</label>
-        <input class="focus-input form-control" formControlName="cpf" type="text" name="cpf" id="cpf"
+        <input class="focus-input form-control" [(ngModel)] = "selectedUser.cpf" formControlName="cpf" type="text" name="cpf" id="cpf"
           placeholder="cpf" required>
         <div class="alert alert-warning" role="alert"
           *ngIf="cpf.invalid && ( cpf.dirty || cpf.touched || cpf.errors.minlength)">
@@ -78,15 +78,16 @@
       </div>
 
       <div class="form-group"> <!-- phone-->
-        <label for="nombre" class="form-control-label">Phone</label>
-        <input class="focus-input form-control" formControlName="phone" type="text" name="phone" id="phone"
+        <label for="phoneNumber" class="form-control-label">Phone</label>
+        <input class="focus-input form-control" [(ngModel)] = "selectedUser.phoneNumber" formControlName="phoneNumber"
+          type="text" name="phoneNumber" id="phoneNumber"
           placeholder="phone" required>
         <div class="alert alert-warning" role="alert"
-          *ngIf="phone.invalid && ( phone.dirty || phone.touched || phone.errors.minlength)">
-          <div class="error" *ngIf="phone.errors.required">
+          *ngIf="phoneNumber.invalid && ( phoneNumber.dirty || phoneNumber.touched || phoneNumber.errors.minlength)">
+          <div class="error" *ngIf="phoneNumber.errors.required">
             Phone requaired
           </div>
-          <div class="error" *ngIf="phone.errors.minlength">
+          <div class="error" *ngIf="phoneNumber.errors.minlength">
             Phone too short
           </div>
         </div>
@@ -97,12 +98,12 @@
 
 <!-- Segunda columna-->
 
-<div class="col-6">
+<div class="col-2">
 
 
   <div class="form-group"> <!-- password-->
     <label for="password" class="form-control-label">Password</label>
-    <input class="focus-input form-control" formControlName="password" type="text" name="password" id="password"
+    <input class="focus-input form-control" [(ngModel)] = "selectedUser.pasword" formControlName="password" type="text" name="password" id="password"
       placeholder="password" required>
     <div class="alert alert-warning" role="alert"
       *ngIf="password.invalid && ( password.dirty || password.touched || password.errors.minlength)">
@@ -119,15 +120,15 @@
 
 
   <div class="form-group"> <!-- photo url-->
-    <label for="photourl" class="form-control-label">Photo Url</label>
-    <input class="focus-input form-control" formControlName="photourl" type="text" name="photourl" id="photourl"
-      placeholder="photourl" required>
+    <label for="photoUrl" class="form-control-label">Photo Url</label>
+    <input class="focus-input form-control" [(ngModel)] = "selectedUser.photoUrl" formControlName="photoUrl" type="text" name="photoUrl" id="photoUrl"
+      placeholder="photoUrl" required>
     <div class="alert alert-warning" role="alert"
-      *ngIf="photourl.invalid && ( photourl.dirty || photourl.touched || photourl.errors.minlength)">
-      <div class="error" *ngIf="photourl.errors.required">
+      *ngIf="photoUrl.invalid && ( photoUrl.dirty || photoUrl.touched || photoUrl.errors.minlength)">
+      <div class="error" *ngIf="photoUrl.errors.required">
         Name requaired
       </div>
-      <div class="error" *ngIf="photourl.errors.minlength">
+      <div class="error" *ngIf="photoUrl.errors.minlength">
         Name too short
       </div>
     </div>
@@ -136,7 +137,7 @@
 
   <div class="form-group"> <!-- Location-->
     <label for="location" class="form-control-label">Loction</label>
-    <input class="focus-input form-control" formControlName="location" type="text" name="location" id="location"
+    <input class="focus-input form-control" [(ngModel)] = "selectedUser.location" formControlName="location" type="text" name="location" id="location"
       placeholder="location" required>
     <div class="alert alert-warning" role="alert"
       *ngIf="location.invalid && ( location.dirty || location.touched || location.errors.minlength)">
@@ -152,7 +153,7 @@
   
   <div class="form-group"> <!-- points-->
     <label for="points" class="form-control-label">Points</label>
-    <input class="focus-input form-control" formControlName="points" type="text" name="points" id="points"
+    <input class="focus-input form-control" [(ngModel)] = "selectedUser.points" formControlName="points" type="text" name="points" id="points"
       placeholder="Points" required>
     <div class="alert alert-warning" role="alert"
       *ngIf="points.invalid && ( points.dirty || points.touched || points.errors.minlength)">
@@ -168,7 +169,7 @@
   
   <div class="form-group"> <!-- Settings-->
     <label for="settings" class="form-control-label">Settings</label>
-    <input class="focus-input form-control" formControlName="settings" type="text" name="settings" id="settings"
+    <input class="focus-input form-control" [(ngModel)] = "selectedUser.settings" formControlName="settings" type="text" name="settings" id="settings"
       placeholder="Settings" required>
     <div class="alert alert-warning" role="alert"
       *ngIf="settings.invalid && ( settings.dirty || settings.touched || settings.errors.minlength)">
@@ -182,10 +183,54 @@
   </div>
 
   <div >
-    <button [disabled] = "formulario.valid"
-     class="btn btn-primary btn-block">Enviar</button>
+    <button [disabled] = "!formulario.valid" (click) = "save()"
+     class="btn btn-primary btn-block ">
+     <i class="fas fa-save"></i>
+    </button>
+     <button  class="btn btn-danger  mt-1 ml-auto">
+      <i class="fas fa-window-close"></i>
+     </button>
   </div>
  </div>
+
+ <div class="col-8 ">
+  <div class="tabla table-responsive-lg mx-auto">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">id</th>
+          <th scope="col">Name</th>
+          <th scope="col">Email</th>
+          <th scope="col">Location</th>
+          <th scope="col">Settings</th>
+          <th scope="col">Actions</th>
+        </tr>
+        </thead>
+        <tbody >
+          
+          <tr *ngFor="let u of users">
+            <th scope="row"><span class="badge badge-primary">{{u.id}}</span></th>
+            <td>{{u.name}}</td>
+            <td>{{u.email}}</td>
+            <td>{{u.location}}</td>
+            <td>{{u.settings}}</td>
+
+            <td>
+              <button class="btn btn-warning" (click)="editar($event)" id = {{u.id}}>
+                <i class="fas fa-edit"></i>
+              </button> 
+              <button class="btn btn-danger" (click)="eliminar($event)" id = {{u.id}}>
+                <i class="fas fa-trash-alt"></i>
+              </button> 
+           
+          </tr>
+        
+          </tbody>
+        </table>
+    
+  </div>
+   </div>
+
 
 
 
@@ -194,10 +239,10 @@
 </div>
 </form>
 <div class="well well-large">
-  Usuarios
+
 </div>
 <div class="row" >
-  <div class="col-8 tabla mx-auto">
+  <!--div class="col-8 tabla mx-auto">
     <table class="table">
       <thead>
         <tr>
@@ -222,5 +267,5 @@
           </tbody>
         </table>
     
-  </div>
+  </div-->
   </div>
