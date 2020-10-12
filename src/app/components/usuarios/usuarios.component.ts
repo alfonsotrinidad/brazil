@@ -13,9 +13,65 @@ import { Validators } from '@angular/forms';
 })
 
 export class UsuariosComponent implements OnInit {
+  //user{   id:""  }
    
-
-  
+  users = [
+    {
+      "uid": "hUvH6neQnWPkwWL9zM4bcAwYspn2",
+      "id": 1,
+      "name": "Vinícius Tolentino",
+      "email": "vinicius@tolentinos.com",
+      "phoneNumber": "(xx) xxxxx-xxxx",
+      "photoUrl": "https://yt3.ggpht.com/a/AGF-l7-lMrFMc6BpALelxfEgJamXwG4LSQnumwnZng=s900-mo-c-c0xffffffff-rj-k-no",
+      "location": "Belo Horizonte",
+      "points": 0,
+      "settingsUser": { "language": "pt-br", "type": "client" }
+    },
+    {
+      "uid": "hUvH6neQnWPkwWL9zM4bcAwYspn2",
+      "id": 2,
+      "name": "Vinícius Tolentino",
+      "email": "vinicius@tolentinos.com",
+      "phoneNumber": "(xx) xxxxx-xxxx",
+      "photoUrl": "https://yt3.ggpht.com/a/AGF-l7-lMrFMc6BpALelxfEgJamXwG4LSQnumwnZng=s900-mo-c-c0xffffffff-rj-k-no",
+      "location": "Belo Horizonte",
+      "points": 0,
+      "settingsUser": { "language": "pt-br", "type": "client" }
+    },
+    {
+      "uid": "hUvH6neQnWPkwWL9zM4bcAwYspn2",
+      "id": 3,
+      "name": "Vinícius Tolentino",
+      "email": "vinicius@tolentinos.com",
+      "phoneNumber": "(xx) xxxxx-xxxx",
+      "photoUrl": "https://yt3.ggpht.com/a/AGF-l7-lMrFMc6BpALelxfEgJamXwG4LSQnumwnZng=s900-mo-c-c0xffffffff-rj-k-no",
+      "location": "Belo Horizonte",
+      "points": 0,
+      "settingsUser": { "language": "pt-br", "type": "client" }
+    },
+    {
+      "uid": "hUvH6neQnWPkwWL9zM4bcAwYspn2",
+      "id": 4,
+      "name": "Vinícius Tolentino",
+      "email": "vinicius@tolentinos.com",
+      "phoneNumber": "(xx) xxxxx-xxxx",
+      "photoUrl": "https://yt3.ggpht.com/a/AGF-l7-lMrFMc6BpALelxfEgJamXwG4LSQnumwnZng=s900-mo-c-c0xffffffff-rj-k-no",
+      "location": "Belo Horizonte",
+      "points": 0,
+      "settingsUser": { "language": "pt-br", "type": "client" }
+    },
+    {
+      "uid": "hUvH6neQnWPkwWL9zM4bcAwYspn2",
+      "id": 5,
+      "name": "Vinícius Tolentino",
+      "email": "vinicius@tolentinos.com",
+      "phoneNumber": "(xx) xxxxx-xxxx",
+      "photoUrl": "https://yt3.ggpht.com/a/AGF-l7-lMrFMc6BpALelxfEgJamXwG4LSQnumwnZng=s900-mo-c-c0xffffffff-rj-k-no",
+      "location": "Belo Horizonte",
+      "points": 0,
+      "settingsUser": { "language": "pt-br", "type": "client" }
+    }
+  ]
   createFormGroup(){
     return new FormGroup({
       id       : new FormControl("",[Validators.required,Validators.minLength(5)]),  
@@ -46,7 +102,8 @@ export class UsuariosComponent implements OnInit {
 
 save(){
   if(this.formulario.valid)
-  console.log(this.formulario.get('nombre').value +   "   "+   this.formulario );
+      console.log(this.formulario.get('nombre').value +   "   "+   this.formulario );
+
   else alert("faltan");
 }
 
@@ -54,7 +111,20 @@ limpiar(){
   this.formulario.reset();
 }
 
-    get id(){return this.formulario.get('id') }
+
+editar(e){
+ 
+}
+
+
+eliminar(e){
+     if (confirm("Want to delete?  "  +e.target.id)){
+          const nuevo = this.users.filter( item => item.id != e.target.id)
+          this.users = nuevo   
+         }
+}
+
+get id(){return this.formulario.get('id') }
     get nombre(){return this.formulario.get('nombre') }
     get email(){return this.formulario.get('email') }
     get cpf(){return this.formulario.get('cpf') }

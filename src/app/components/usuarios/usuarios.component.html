@@ -5,13 +5,14 @@
 <form [formGroup] = "formulario" (ngSubmit)="save()" >
 <div class="container">
 
+
   <div class="row">
     <!-- primera columna-->
     <div class="col-6">
 
       <div class="form-group">   <!-- id-->
         <label for="id" class="form-control-label">Id</label>
-        <input class="focus-input form-control" formControlName="id" type="text" name="id" id="id"
+        <input class="focus-input form-control" formControlName="id" type="text" name="id" id="id" ngmodel=""
           placeholder="Nombre" required>
         <div class="alert alert-warning" role="alert"  *ngIf="id.invalid && ( id.dirty || id.touched || id.errors.minlength)">
           <div class="error" *ngIf="id.errors.required">
@@ -192,3 +193,34 @@
    </div>
 </div>
 </form>
+<div class="well well-large">
+  Usuarios
+</div>
+<div class="row" >
+  <div class="col-8 tabla mx-auto">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">id</th>
+          <th scope="col">Email</th>
+          <th scope="col">Location</th>
+          <th scope="col">Actions</th>
+        </tr>
+        </thead>
+        <tbody >
+          
+          <tr *ngFor="let u of users">
+            <th scope="row"><span class="badge badge-primary">{{u.id}}</span></th>
+            <td>{{u.name}}</td>
+            <td>{{u.email}}</td>
+            <td>
+              <button class="btn btn-warning" (click)="editar($event)" id = {{u.id}}>Editar</button> 
+              <button class="btn btn-danger" (click)="eliminar($event)" id = {{u.id}}>Eliminar</button> 
+           
+          </tr>
+        
+          </tbody>
+        </table>
+    
+  </div>
+  </div>
